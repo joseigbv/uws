@@ -106,8 +106,10 @@ $ ./hexbin < nc.hex > /bin/nc
 
 bin2sh: converts binary to shell script, when executed it regenerates binary; useful to upload line by line.
 
+```
 $ ./bin2sh < /bin/nc > nc.sh 
 $ ./nc.sh > /bin/nc
+```
 
 ## Authors
 
