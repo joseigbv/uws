@@ -1,0 +1,11 @@
+
+NOTA: para subir codigo fuente en urlencode y compilar... 
+
+#include <stdio.h>
+unsigned char HX(char d) { unsigned char r =  0; if (d >= '0' && d <= '9') r = d - '0'; if (d >= 'a' && d <= 'f') r = 10 + d - 'a'; return r; }
+void main() { int sz, i; char sbuf[65]; while (sz = read(0, &sbuf, 65)) for (i = 0; i < sz - 1; i++) putchar((HX(sbuf[i++]) << 4) | HX(sbuf[i])); }
+
+echo "%23include%20%3Cstdio.h%3E%0Aunsigned%20char%20HX(char%20d)%20%7B%20unsigned%20char%20r%20%3D%20%200%3B%20if%20(d%20%3E%3D%20%270%27%20%26%26%20d%20%3C%3D%20%279%27)%20r%20%3D%20d%20-%20%270%27%3B%20if%20(d%20%3E%3D%20%27a%27%20%26%26%20d%20%3C%3D%20%27f%27)%20r%20%3D%2010%20%2B%20d%20-%20%27a%27%3B%20return%20r%3B%20%7D%0Avoid%20main()%20%7B%20int%20sz%2C%20i%3B%20char%20sbuf%5B65%5D%3B%20while%20(sz%20%3D%20read(0%2C%20%26sbuf%2C%2065))%20for%20(i%20%3D%200%3B%20i%20%3C%20sz%20-%201%3B%20i%2B%2B)%20putchar((HX(sbuf%5Bi%2B%2B%5D)%20%3C%3C%204)%20%7C%20HX(sbuf%5Bi%5D))%3B%20%7D%0A" > /tmp/hexbin.c 
+
+gcc /tmp/hexbin.c -o /tmp/hexbin 
+
